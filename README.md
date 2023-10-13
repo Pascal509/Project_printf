@@ -1,2 +1,2 @@
-# Project_printf
+# Printf
 Diving deep into printf function
