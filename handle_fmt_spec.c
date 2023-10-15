@@ -3,9 +3,9 @@
 /**
  * handle_fmt_spec - Position the format specifiers to their
  *corresponding functions that handle their formatting.
- * @fmt_specifier: Specified format specifier character
+ * @fmt_spec: Specified format specifier character
  * @@buff: Buffer array to handle print.
-* @int: integer parameters
+ * @int: integer parameters
  *
  * Return: The function to handle the formatte  printing
  */

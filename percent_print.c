@@ -11,7 +11,8 @@
  * Return: The number of characters printed.
  */
 int percent_print(va_list ap, char __attribute__((unused))*buff,
-		int flag, int width, int precision, int len_modifier)
+int flag, int width, int precision, int len_modifier)
+
 {
 	int chrs_printed = 1;
 	(void)ap;

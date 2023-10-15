@@ -3,53 +3,49 @@
 /**
  * find_precision - Gets the precision value for printing
  * @format: The formatted string
- * @index: Shows the current position within the format string.
- * @ap: Accesses the variable arguments.
+ * @current_index: Shows the current position within the format string.
  *
  * Return: Precision.
  */
-int find_precision(const char *format, int *index, va_list ap)
+int find_precision(const char *format, int *current_index)
 {
-	int current_index = *index + 1;
-	int precision = -1;
-
-	/* checks if the character at the current_index is not ('.'). */
-	if (format[current_index] != '.')
-	{
-		return (precision);
-	}
+	int precision, index, index_1;
 
 	precision = 0;
-
 	/* Checks each character in the format string */
-	for (current_index += 1; format[current_index] != '\0'; current_index++)
-{
-		/**
-		 * if it is a number, it multiplies the current width by 10
-		 * and adds the number value of the character to the width
-		 */
-		if (is_Digit(format[current_index]))
+	index = *current_index + 1;
+	while (format[index] != '\0')
+	{
+
+		index_1 = index + 1;
+		while (format[index_1]  != '\0')
 		{
-			precision *= 10;
-			precision += format[current_index] - '0';
+			/**
+			 * If the character at the current_index is ('.') and
+			 * also a number, then multiply the current precision by 10
+			 * and add the number value of the character to the width
+			 * Finally, increase the current index by 1
+			 */
+
+			if (format[index] == '.' && is_Digit(format[index_1]))
+			{
+				precision = precision * 10 + (format[index + 1] - '0');
+				*current_index += 1;
+			}
+			else
+			{
+				break;
+			}
+			index_1++;
+
 		}
 
-	/**
-	 * if it is '*', then the current_index is increased and width
-	 * will be assigned the number value retrieved by va_arg from va_list.
-	 */
-		else if (format[current_index] == '*')
+		/* Checks if precision is not 0 and return precision if so */
+		if (precision != 0)
 		{
-			current_index++;
-			precision = va_arg(ap, int);
-			break;
+			return (precision);
 		}
-		else
-			break;
-}
-
-/* Assigns index to the last processed character */
-*index = current_index - 1;
-
-return (precision);
+		index++;
+	}
+	return (0);
 }

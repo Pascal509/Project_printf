@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * len_modifier - Gets the length to cast the argument
+ * find_len_modifier - Gets the length to cast the argument
  * @format: Formatted string to print the arguments
  * @index: Acceses the current index.
  *
  * Return: Specified length.
  */
-int len_modifier(const char *format, int *index)
+int find_len_modifier(const char *format, int *index)
 {
 	int current_index = *index + 1;
 	int len = 0;

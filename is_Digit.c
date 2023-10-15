@@ -7,8 +7,14 @@
  */
 int is_Digit(int n)
 {
-	if (c >= '0' && c <= '9')
+
+	if (n >= '0' && n <= '9')
+{
 		return (1);
+}
 	else
+{
 		return (0);
+}
+
 }

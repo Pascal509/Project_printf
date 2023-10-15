@@ -19,7 +19,7 @@ int chrs_print(va_list ap, char __attribute__((unused))*buff, int flag,
 	(void)flag;
 	(void)width;
 	(void)precision;
-	(void)len_modif;
+	(void)len_modifier;
 
 /* Retrieves a character from va_list ap and then outputs it */
 

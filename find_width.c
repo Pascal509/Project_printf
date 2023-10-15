@@ -3,49 +3,45 @@
 /**
  * find_width - Calculates the width for printing
  * @format: Formatted string in which to print the arguments.
- * @index: List of arguments to be printed.
+ * @current_index: List of arguments to be printed.
  * @ap: list of arguments.
  *
- * Return: width.
+ * Return: width_seen.
  */
-int find_width(const char *format, int *index, va_list ap)
+
+int find_width(const char *format, va_list ap, int *current_index)
 {
+	int width_seen = 0;
+	int index = *current_index + 1;
 
-
-	int current_index;
-	int width = 0;
-
-	/* Checks each character in the format string */
-	for (current_index = *index + 1; format[current_index] != '\0';
-			current_index++)
+	while (format[index] != '\0')
 	{
-
-		/**
-		 * If it is a number, it multiplies the current width by 10
-		 * and adds the number value of the character to the width
-		 */
-		if (is_Digit(format[current_index]))
+		/* If the next index is a number */
+		if (is_Digit(format[index])) /* IF the next character is a digit */
 		{
-			width *= 10;
-			width += format[current_index] - '0';
+			/**
+			 * Multiplies the current width by 10 and add
+			 * the char digit to the width, then, assign it to width
+			 */
+			width_seen *= 10 + (format[index] - '0');
+			*current_index++;
 		}
-
 		/**
 		 * If it is '*', then the current_index is increased and width
 		 * will be assigned the number value retrieved by va_arg from va_list.
 		 */
-		else if (format[current_index] == '*')
+		else if (format[index] == '*')
 		{
-			current_index++;
-			width = va_arg(ap, int);
+			width_seen = va_arg(ap, int);
+			*current_index++;
 			break;
 		}
 		else
+		{
 			break;
+		}
+		index++;
 	}
 
-	/* Assigns index to the last processed character */
-	*index = current_index - 1;
-
-	return (width);
+	return (width_seen);
 }

@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	if (format == NULL) /* IF format is NULL */
 	{
-		return (-1);
+		return (0);
 	}
 
 	for (; format[index] != '\0'; index++) /* Iterating through the characters of format */
@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 			if (format[index + 1] == '%')
 			{
 				_putchar(format[index + 1]);
-				flag = find_flag(format, &index);
+				flag = find_flags(format, &index);
 				width = find_width(format, args, &index);
 				precision = find_precision(format, &index);
 				len_modifier = find_len_modifier(format, &index);
@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 			/* If the conversion char does not match the required */
 			if (handle_fmt_spec(format_specifier) == 0)
 			{
-				return (0);
+				return (-1);
 			}
 			all_chrs_printed += handle_fmt_spec(format_specifier)(args, buff, flag, width, precision, len_modifier);
 		}
