@@ -10,30 +10,51 @@
  * Return: Number of characters printed
  */
 
-int string_print(va_list ap, char *buff, int flag, int width,
-		int precision, int len_modifier)
-
+int string_print(va_list ap, char buff[],
+		int flags, int width, int precision, int len_modifier)
 {
+	int len = 0, index;
+	char *s = va_arg(ap, char *);
 
-	int printed_chrs = 0;
-	(void)flag;
-	(void)width;
-	(void)precision;
-	(void)len_modifier;
+	(void) buff;
+	(void) flags;
+	(void) width;
+	(void) precision;
+	(void) len_modifier;
 
-	/* Assigns the buff pointer to the value retrieved from the va_list ap using va_arg */
-	buff = va_arg(ap, char *);
 
-	/* Calls the printBuffer function with buff, if buff is null */
-	if (buff == NULL)
+	if (s == NULL)
 	{
-		buff = "(null)";
-		printed_chrs = printBuffer(buff);
+		s = "(null)";
+		if (precision >= 6)
+			s = "      ";
 	}
 
-	else
+	while (s[len] != '\0')
+{
+		len++;
+}
+	if (precision >= 0 && precision < len)
 	{
-		printed_chrs = printBuffer(buff);
+		len = precision;
 	}
-	return (printed_chrs);
+	if (width > len)
+	{
+		if (flags & IS_MINUS)
+		{
+			write(1, &s[0], len);
+			for (index = width - len; index > 0; index--)
+				write(1, " ", 1);
+			return (width);
+		}
+		else
+		{
+			for (index = width - len; index > 0; index--)
+				write(1, " ", 1);
+			write(1, &s[0], len);
+			return (width);
+		}
+	}
+
+	return (write(1, s, len));
 }

@@ -10,16 +10,15 @@
  * @len_modif: Not handled.
  * Return: The number of characters printed.
  */
-int percent_print(va_list ap, char __attribute__((unused))*buff,
-int flag, int width, int precision, int len_modifier)
+int percent_print(va_list ap, char __attribute__((unused))buff[],
+int flags, int width, int precision, int len_modifier)
 
 {
-	int chrs_printed = 1;
 	(void)ap;
-	(void)flag;
+	(void)flags;
 	(void)width;
 	(void)precision;
 	(void)len_modifier;
 
-	return (chrs_printed);
+	return (write(1, "%%", 1));
 }

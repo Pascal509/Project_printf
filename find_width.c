@@ -3,45 +3,35 @@
 /**
  * find_width - Calculates the width for printing
  * @format: Formatted string in which to print the arguments.
- * @current_index: List of arguments to be printed.
+ * @index: List of arguments to be printed.
  * @ap: list of arguments.
  *
  * Return: width_seen.
  */
 
-int find_width(const char *format, va_list ap, int *current_index)
+int find_width(const char *format, int *index, va_list ap)
 {
+	int index_1;
 	int width_seen = 0;
-	int index = *current_index + 1;
 
-	while (format[index] != '\0')
+	for (index_1 = *index + 1; format[index_1] != '\0'; index_1++)
 	{
-		/* If the next index is a number */
-		if (is_Digit(format[index])) /* IF the next character is a digit */
+		if (is_Digit(format[index_1]))
 		{
-			/**
-			 * Multiplies the current width by 10 and add
-			 * the char digit to the width, then, assign it to width
-			 */
-			width_seen *= 10 + (format[index] - '0');
-			*current_index++;
+			width_seen *= 10;
+			width_seen += format[index_1] - '0';
 		}
-		/**
-		 * If it is '*', then the current_index is increased and width
-		 * will be assigned the number value retrieved by va_arg from va_list.
-		 */
-		else if (format[index] == '*')
+		else if (format[index_1] == '*')
 		{
+			index_1++;
 			width_seen = va_arg(ap, int);
-			*current_index++;
 			break;
 		}
 		else
-		{
 			break;
-		}
-		index++;
 	}
+
+	*index = index_1 - 1;
 
 	return (width_seen);
 }

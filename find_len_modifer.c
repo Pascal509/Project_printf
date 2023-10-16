@@ -9,31 +9,31 @@
  */
 int find_len_modifier(const char *format, int *index)
 {
-	int current_index = *index + 1;
+	int main_index = *index + 1;
 	int len = 0;
 
 /* Checks if the format specifier is 'l' and assigns LONG int to it.*/
-	if (format[current_index] == 'l')
+	if (format[main_index] == 'l')
 	{
-		len = LONG;
+		len = LENGTHY;
 	}
 
 /* Checks if the format specifier is 'h' and assigns SHORT int to it.*/
-	else if (format[current_index] == 'h')
+	else if (format[main_index] == 'h')
 	{
-		len = SHORT;
+		len = SHORTY;
 	}
 
 /* If 'l' or 'h' is found, then length = 0 */
 	if (len == 0)
 	{
 /* Index is assigned at the last processed character */
-		*index = current_index - 1;
+		*index = main_index - 1;
 	}
 	else
 	{
  /* Index is at the current character */
-		*index = current_index;
+		*index = main_index;
 	}
 	return (len);
 }

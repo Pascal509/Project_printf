@@ -1,21 +1,15 @@
 #include "main.h"
-
 /**
- * printBuffer - Prints the content of the buffer
- * @buff: Buffer to print
- * Return: Nothing
+ * print_buffer - Prints the contents of the buffer if it exist
+ * @buffer: Array of chars
+ * @buff_ind: Index at which to add next char, represents the length.
  */
-int printBuffer(char *buff)
+void printBuffer(char buff[], int *indexed_buffer)
 {
-	int chrs_printed = 0;
-	int index = 0;
+	if (*indexed_buffer > 0)
+{
+		write(1, &buff[0], *indexed_buffer);
+}
 
-	for (; buff[index]; index++)
-	{
-	//	_putchar(buff[index]);
-chrs_printed += write(1, &buff[index], 1);
-		index++;
-	}
-
-	return (chrs_printed);
+	*indexed_buffer = 0;
 }

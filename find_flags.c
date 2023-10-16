@@ -14,7 +14,7 @@ int find_flags(const char *format, int *index)
 	int current_index;
 	int flags_seen = 0;
 	const char FLAGS_CHAR[] = {'-', '+', '0', '#', ' ', '\0'};
-	const int FLAGS_ARRAY[] = {MINUS, PLUS, ZERO, HASH, BLANK_SPACE, 0};
+	const int FLAGS_ARRAY[] = {IS_MINUS, IS_PLUS, IS_ZERO, IS_HASH, BLANK_SPACE, 0};
 
 	/* loop to traverse through the characters in the format string */
 	current_index = *index + 1;
