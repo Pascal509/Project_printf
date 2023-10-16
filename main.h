@@ -36,7 +36,7 @@ typedef struct format
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-
+void rev_print(char *s);
 
 
 int find_precision(const char *format, int *current_index);
