@@ -8,7 +8,7 @@
  */
 int is_printable(char chrs)
 {
-	if (chrs >= 32 && chrs < 127)
+	if (chrs > 31 && chrs < 127)
 	{
 		return (1);
 	}
