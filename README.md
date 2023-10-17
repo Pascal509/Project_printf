@@ -1,2 +1,2 @@
-# Printf
-Diving deep into printf function
+# Print
+Recreating our own printf function in C.
