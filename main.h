@@ -89,5 +89,7 @@ int print_int(va_list types, char buffer[],
 int print_binary(va_list types, char buffer[],
         int flags, int width, int precision, int size);
 
+int get_precision(char const *format, int *index);
+
 
 #endif
