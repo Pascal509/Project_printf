@@ -17,22 +17,25 @@
 int match_fmt_specifier(const char *fmt_spec, int *index_1, va_list ap,
 		char buff[], int flags, int width, int precision, int len_modifier)
 {
-	int index, len_anon = 0, printedChrs = -1;
+	int index;
+/*	len_anon = 0;
+	printedChrs = -1; */
+
 	format func[] = {
 		{'c', chrs_print},
 		{'s', string_print},
 		{'%', percent_print},
-		//		{'i', print_int},
-		//		{'d', print_int},
-		//		{'b', print_binary},
-		//		{'u', print_unsigned},
-		//		{'o', print_octal},
-		//		{'x', print_hexadecimal},
-		//		{'X', print_hexa_upper},
-		//		{'p', print_pointer},
-		//		{'S', print_non_printable},
-		//		{'r', print_reverse},
-		//		{'R', print_rot13string},
+/**		{'i', print_int},
+*		{'d', print_int},
+*		{'b', print_binary},
+*		{'u', print_unsigned},
+*		{'o', print_octal},
+*		{'x', print_hexadecimal},
+*		{'X', print_hexa_upper},
+*		{'p', print_pointer},
+*		{'S', print_non_printable},
+*		{'r', print_reverse},
+*		{'R', print_rot13string}, */
 		{0, 0}
 	};
 
@@ -45,7 +48,7 @@ int match_fmt_specifier(const char *fmt_spec, int *index_1, va_list ap,
 	{
 		/**
 		 * Calls the function for the format specifier,
-		 * if amatch  is found
+		 * if a match  is found
 		 */
 		if (fmt_spec[*index_1] == func[index].fmt_spec)
 		{
