@@ -28,7 +28,7 @@ int reverse_print(va_list args, char *buffer, int flags, int width,
 
 	count = 0;
 	printed_char = 0;
-	for (; buffer[count] != '\0'; count++ )
+	for (; buffer[count] != '\0'; count++)
 	{
 		printed_char++;
 	}

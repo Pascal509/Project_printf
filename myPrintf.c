@@ -3,14 +3,14 @@
 /**
  * _printf - Printf function
  * @format: format.
-*  @...: Variable arguments
+ *  @...: Variable arguments
  * Return: Printed chars.
  */
 int _printf(const char *format, ...)
 {
 	int index = 0,  printedChars = 0, fmt_spec, printOut = 0;
-	int flags, width, precision, size;
-	va_list types;
+	int flags, width, precision, size
+		va_list types;
 	char buffer[BUFFER_SIZE];
 
 
@@ -36,7 +36,8 @@ int _printf(const char *format, ...)
 			if (handle_fmt_spec(fmt_spec) == 0)
 				return (0);
 
-			printOut += handle_fmt_spec(fmt_spec)(types, buffer, flags, width, precision, size);
+			printOut += handle_fmt_spec(fmt_spec)(types,
+					buffer, flags, width, precision, size);
 		}
 		index++;
 	}

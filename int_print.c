@@ -13,21 +13,18 @@
  * Return: Number of characters to print
  */
 
-
 int int_print(va_list args, char __attribute__((unused))*buffer,
 		int flags, int width, int precision, int size)
 {
-	int n_printed = 0, pad = 0;
-	int n;
-	UNUSED (precision);
+	int n, n_printed = 0, pad = 0;
 
+	UNUSED(precision);
 	n = va_arg(args, int);
 
-	if (size == 'l')
-		n = (long)n;
+	n = (size == 'l') ? (long)n : n;
 
-	if (size == 'h')
-		n = (short)n;
+	n = (size == 'h') ? (short)n : n;
+
 
 	if (flags == '+') /* IF flag is equal to '+' */
 	{
@@ -39,17 +36,17 @@ int int_print(va_list args, char __attribute__((unused))*buffer,
 	{
 		if (flags == '-')
 		{
-			pad = width - print_num_helper(n);
-			flags = ' ';
-			for (; pad > 0; pad--)
-				n_printed += _putchar(flags);
+			pad = width - print_num_helper(n),
+			    flags = ' ';
+				    for (; pad > 0; pad--)
+					    n_printed += _putchar(flags);
 
 			return (n_printed);
 		}
 
 		if (flags == '0')
 		{
-			n_printed = digit_counter(n);
+			n_printed = digit_counter(n),
 			pad = width - print_num_helper(n);
 			for (; pad > 0; pad--)
 				n_printed += _putchar(flags);

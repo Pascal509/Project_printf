@@ -14,10 +14,11 @@ int string_print(va_list args, char *buffer, int flags, int width,
 		int precision, int size)
 {
 	int printed_char = 0;
-	UNUSED (flags);
-	UNUSED (width);
-	UNUSED (precision);
-	UNUSED (size);
+
+	UNUSED(flags);
+	UNUSED(width);
+	UNUSED(precision);
+	UNUSED(size);
 
 	buffer = va_arg(args, char *);
 	if (buffer == NULL)

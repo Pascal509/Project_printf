@@ -2,12 +2,13 @@
 /**
  * print_num_helper - Recursively, helps in printing numbers
  * @num: NUmber to print
- * 
+ *
  * Return: Number of chars printed
  */
 int print_num_helper(int num)
 {
 	int count = 0;
+
 	if (num < 0)/* IF number is negative, print '-' minus */
 	{
 		count += _putchar('-'); /*print minus */
