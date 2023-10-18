@@ -11,7 +11,7 @@
  * Return: Numbers of chars printed
  */
 
-int printRot13(va_list ap, char *buff, int flag, int width,
+int printRot13(va_list ap, char *buff, int flag, int width, 
 		int precision, int size)
 
 {

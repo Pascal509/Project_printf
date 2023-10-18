@@ -12,8 +12,8 @@
  * @len_modifier: Length specification
  * Return: Number of characters printed
  */
-int hex_Print(va_list ap, char towards[], char buff[],
-	int flags, char flagsCH, int width, int precision, int len_modifier)
+int hex_Print(va_list ap, char towards[], char buff[], 
+		int flags, char flagsCH, int width, int precision, int len_modifier)
 {
 	int index = BUFFER_SIZE - 2;
 	unsigned long int digit = va_arg(ap, unsigned long int);

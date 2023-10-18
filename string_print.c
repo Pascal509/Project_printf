@@ -10,7 +10,7 @@
  * Return: Number of characters printed
  */
 
-int string_print(va_list args, char *buffer, int flags, int width,
+int string_print(va_list args, char *buffer, int flags, int width, 
 		int precision, int size)
 {
 	int printed_char = 0;

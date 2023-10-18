@@ -43,5 +43,5 @@ int (*handle_fmt_spec(char fmt_spec))(va_list args, char *buff, int, int, int, i
 	{
 		return (0);
 	}
-	return (func{ind].function);
-	}
+	return (func[ind].function);
+}
