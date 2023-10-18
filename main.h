@@ -7,6 +7,8 @@
 #define BUFFER_SIZE 1024
 
 
+#define UNUSED(x) (void)(x)
+
 /**
  * struct format - Struct op
  *
@@ -42,11 +44,11 @@ int char_print(va_list args, char __attribute__((unused))*buffer, int flags,
 
 int get_flag(const char *format, int *curr_i);
 
-int find_format_specifier(const char *format, int *current_index);
+int get_fmt_spec(const char *format, int *current_index);
 
 int get_precision(char const *format, int *ind);
 
-int find_len_modif(char const *format, int *curr_i);
+int get_size(char const *format, int *curr_i);
 
 int get_width(const char *format, va_list args, int *curr_i);
 

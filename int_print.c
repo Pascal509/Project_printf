@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * format_num - Format a number based on width, precision, and flags
+ * int_print - Format a number based on width, precision, and flags
  * @buffer: Buffer
  * @flags: Flags
  * @width: Width
@@ -14,7 +14,7 @@
  */
 
 
-int printInt(va_list args, char __attribute__((unused))*buffer, 
+int int_print(va_list args, char __attribute__((unused))*buffer, 
 		int flags, int width, int precision, int size)
 {
 	int n_printed = 0, pad = 0;

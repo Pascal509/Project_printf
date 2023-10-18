@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_rot13string - Print a string in rot13.
+ * rot13_print - Print a string in rot13.
  * @args: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -11,7 +11,7 @@
  * Return: Numbers of chars printed
  */
 
-int printRot13(va_list ap, char *buff, int flag, int width, 
+int rot13_print(va_list args, char *buffer, int flags, int width, 
 		int precision, int size)
 
 {
@@ -33,15 +33,15 @@ int printRot13(va_list ap, char *buff, int flag, int width,
 	{
 		for (jo = 0; in[jo]; jo++)
 		{
-			if (in[jo] == buff[ind])
+			if (in[jo] == buffer[ind])
 			{
 				count += _putchar(out[jo]);
 				break;
 			}
 		}
-		if (!in[j])
+		if (!in[jo])
 		{
-			count += _putchar(buff[i]);
+			count += _putchar(buffer[ind]);
 		}
 	}
 	return (count);

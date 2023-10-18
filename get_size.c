@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * find_size - Gets the length to cast the argument
+ * get_size - Gets the length to cast the argument
  * @format: Formatted string to print the arguments
  * @index: Acceses the current index.
  *
  * Return: Specified length.
  */
 
-int find_len_modif(char const *format, int *curr_i)
+int get_size(char const *format, int *curr_i)
 {
 	int ind = *curr_i + 1, chars = 0, loop;
 	char lenCH[2] = "lh";

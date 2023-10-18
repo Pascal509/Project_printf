@@ -6,7 +6,7 @@
  * @current_index: the index where '%' is seen in the format string
  * Return: format specifier seen
  */
-int find_format_specifier(const char *format, int *current_index)
+int get_fmt_spec(const char *format, int *current_index)
 {
 	int index;
 	int fmt_spec_seen;

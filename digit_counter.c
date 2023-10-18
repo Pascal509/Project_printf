@@ -13,7 +13,7 @@ int digit_counter(int num)
 }	
 else if (num > 9)
 {
-		return (1 + num_count(num / 10));
+		return (1 + digit_counter(num / 10));
 }
 	return (0);
 }

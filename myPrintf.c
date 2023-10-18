@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[index + 1] == '%')
 				_putchar(format[index + 1]);
-			flag = get_flag(format, &index);
+			flags = get_flag(format, &index);
 			width = get_width(format, types, &index);
 			precision = get_precision(format, &index);
 			size = get_size(format, &index);
@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 			if (handle_fmt_spec(fmt_spec) == 0)
 				return (0);
 
-			printOut += handle_fmt_spec(fmt_spec)(types, buffer, flag, width, precision, size);
+			printOut += handle_fmt_spec(fmt_spec)(types, buffer, flags, width, precision, size);
 		}
 		index++;
 	}

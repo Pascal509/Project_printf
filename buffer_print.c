@@ -14,7 +14,7 @@ int buffer_print(char *buffer)
 	while (buffer[ind])
 	{
 		printed_char += write(1, &buffer[ind], 1);
-		i++;
+		ind++;
 	}
 
 	return (printed_char);

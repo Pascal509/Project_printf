@@ -2,7 +2,7 @@
 
 
 /**
- * print_binary - Prints an unsigned number
+ * binary_print - Prints an unsigned number
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -12,7 +12,7 @@
  * Return: Numbers of char printed.
  */
 
-int print_binary(va_list args, char __attribute__((unused))*buffer, int flags, 
+int binary_print(va_list args, char __attribute__((unused))*buffer, int flags, 
 		int width, int precision, int size)
 {
 	unsigned int n, m, i, sum;
