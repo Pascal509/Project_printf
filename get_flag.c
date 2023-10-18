@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * find_flags - Searches the flag option in the format string
+ * get_flag - Searches the flag option in the format string
  * @format: The format string to check
- * @index: The current index where the '%' char is found
+ * @curr_i: The current index where the '%' char is found
  *
  * Return: flags if seen, else 0;
  */

@@ -1,9 +1,8 @@
 #include "main.h"
 
-
 /**
  * binary_print - Prints an unsigned number
- * @types: Lista of arguments
+ * @args: List of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width.
@@ -17,7 +16,7 @@ int binary_print(va_list args, char __attribute__((unused))*buffer, int flags,
 {
 	unsigned int n, m, i;
 	int count = 0;
- char *a[32];
+	char *a[32];
 
 	UNUSED(buffer);
 	UNUSED(flags);
@@ -27,20 +26,19 @@ int binary_print(va_list args, char __attribute__((unused))*buffer, int flags,
 
 	n = va_arg(args, unsigned int);
 	m = 2147483648; /* (2 ^ 31) */
-	
 
 	for (i = 0; i < 32; i++)
 	{
 		a[i] = n & m ? "1" : "0";
-        m >>= 1;
+		m >>= 1;
 	}
 	for (i = 0, count = 0; i < 32; i++)
 	{
-		 if (a[i][0] == '1' || i == 31)
-        {
-            _putchar(a[i][0]);
-            count++;
-        }
+		if (a[i][0] == '1' || i == 31)
+		{
+			_putchar(a[i][0]);
+			count++;
+		}
 	}
 	return (count);
 }

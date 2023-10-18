@@ -33,14 +33,12 @@ int hex_lowerCase_print(va_list args, char __attribute__((unused))*buffer,
 	{
 		while (n_rep > 15)
 		{
-			n_rep /= 16;
-			num_printed++;
+			n_rep /= 16, num_printed++;
 		}
 		padin = width - num_printed;
 		while (padin > 0)
 		{
-			num_printed += _putchar('0');
-			padin--;
+			num_printed += _putchar('0'), padin--;
 		}
 	}
 	if (flags == '-')
@@ -49,15 +47,12 @@ int hex_lowerCase_print(va_list args, char __attribute__((unused))*buffer,
 		padin = width - num_printed;
 		while (padin > 0)
 		{
-			num_printed += _putchar(' ');
-			padin--;
+			num_printed += _putchar(' '), padin--;
 		}
 		return (num_printed);
 	}
 	if (flags == '#')
-		num_printed += write(1, "0x", 2);
-
+	num_printed += write(1, "0x", 2);
 	num_printed += hexa_print(lowerHex, n);
-
 	return (num_printed);
 }

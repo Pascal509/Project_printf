@@ -3,7 +3,7 @@
 /**
  * get_size - Gets the length to cast the argument
  * @format: Formatted string to print the arguments
- * @index: Acceses the current index.
+ * @curr_i: Acceses the current index.
  *
  * Return: Specified length.
  */
