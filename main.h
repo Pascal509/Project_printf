@@ -28,7 +28,7 @@ int percent_print(va_list ap, char __attribute__((unused))buff[],
 		int flag, int width, int precision, int len_modifier);
 
 int binary_print(va_list args, char __attribute__((unused))*buffer, int flags, 
-		int width, int precision, int size)
+		int width, int precision, int size);
 
 int is_Digit(int n);
 
@@ -58,7 +58,7 @@ int hex_lowerCase_print(va_list args, char __attribute__((unused))*buffer,
 int hex_upperCase_print(va_list args, char __attribute__((unused))*buffer, 
 		int flags, int width, int precision, int size);
 
-int printInt(va_list args, char __attribute__((unused))*buffer, 
+int int_print(va_list args, char __attribute__((unused))*buffer, 
 		int flags, int width, int precision, int size);
 
 int is_Digit(int n);
@@ -75,7 +75,7 @@ int print_num_helper(int num);
 int reverse_print(va_list args, char *buffer, int flags, int width, 
 		int precision, int size);
 
-int printRot13(va_list ap, char *buff, int flag, int width, 
+int rot13_print(va_list ap, char *buff, int flag, int width, 
 		int precision, int size);
 
 int string_print(va_list args, char *buffer, int flags, int width, 

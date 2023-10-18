@@ -44,5 +44,5 @@ int printRot13(va_list ap, char *buff, int flag, int width,
 			count += _putchar(buff[i]);
 		}
 	}
-	return (count);
+	return (count);
 }
