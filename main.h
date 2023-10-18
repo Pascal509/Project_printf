@@ -4,18 +4,6 @@
 #include <unistd.h>
 #include <stdio.h>
 
-#define BUFFER_SIZE 1024
-#define LENGTHY 2
-#define SHORTY 1
-
-
-
-/* FLAGS */
-#define IS_MINUS 1
-#define IS_PLUS 2
-#define IS_ZERO 4
-#define IS_HASH 8
-#define BLANK_SPACE 16
 
 
 
@@ -32,62 +20,70 @@ typedef struct format
         int (*function)(va_list, char *, int, int, int, int);
 } format;
 
-
+ #define BUFFER_SIZE 1024
+ #define UNUSED(x) (void)(x)
 
 
 int _putchar(char c);
+
 int _printf(const char *format, ...);
 
- int format_num(int index_1, char buff[], int flags, int width,
- int precision, int len, char padin, char xtra_ch);
+int percent_print(va_list ap, char __attribute__((unused))buff[], 
+		int flag, int width, int precision, int len_modifier);
 
-int write_formatted_num(char buff[], int index_1, int flags, char xtra_ch);
+int binary_print(va_list args, char __attribute__((unused))*buffer, int flags, 
+		int width, int precision, int size);
 
-int handle_unsupported_fmts(const char *fmt_spec, int *index_1, int width);
-int match_fmt_specifier(const char *fmt_spec, int *index_1, va_list ap,
-                char buff[], int flags, int width, int precision, int len_modifier);
-
-int find_len_modifier(const char *format, int *index);
-
-int find_format_specifier(const char *format, int *current_index);
-int (*handle_fmt_spec(char format_specifier))(va_list ap, char *buff,
-int, int, int, int);
-
-
-int handle_printing(const char *format, int *index_1, va_list ap, char buff[],
-int flags, int width, int precision, int len_modifier);
-
-int handle_fmt_specifier(const char *format, int *index_1, va_list ap, char buff[],
-                int flags, int width, int precision, int len_modifier);
-
-int percent_print(va_list ap, char __attribute__((unused))buff[],
-int flag, int width, int precision, int len_modifier);
 int is_Digit(int n);
-int is_printable(char chrs);
 
-int string_print(va_list ap, char buff[], int flag, int width,
-                  int precision, int len_modifier);
+int buffer_print(char *buffer);
 
-int find_precision(const char *format, int *current_index, va_list ap);
+int digit_counter(int num);
 
-int chrs_print(va_list ap, char buff[], int flag,
-                int width, int precision, int len_modifier);
-int find_flags(const char *format, int *index);
-void printBuffer(char buff[], int *indexed_buffer);
-int find_width(const char *format, int *index, va_list ap);
-int man_chrs_write(char chrs, char buff[],
-int flags, int width, int precision, int len_modifier);
-int handle_num_chrs(int less_than_0, int index, char buff[],
-int flags, int width, int precision, int len_modifier);
+int char_print(va_list args, char __attribute__((unused))*buffer, int flags, 
+		int width, int precision, int size);
 
-int handle_chrs_write(char chrs, char buff[],
-int flags, int width, int precision, int len_modifier);
 
-int print_int(va_list types, char buffer[],
-        int flags, int width, int precision, int size);
+int get_flag(const char *format, int *curr_i);
 
-int print_binary(va_list types, char buffer[],
-        int flags, int width, int precision, int size);
+int get_fmt_spec(const char *format, int *current_index);
+
+int get_precision(char const *format, int *ind);
+
+int get_size(char const *format, int *curr_i);
+
+int get_width(const char *format, va_list args, int *curr_i);
+
+int (*handle_fmt_spec(char fmt_spec))(va_list, char *, int, int, int, int);
+
+int hex_lowerCase_print(va_list args, char __attribute__((unused))*buffer, 
+		int flags, int width, int precision, int size);
+
+int hex_upperCase_print(va_list args, char __attribute__((unused))*buffer, 
+		int flags, int width, int precision, int size);
+
+int int_print(va_list args, char __attribute__((unused))*buffer, 
+		int flags, int width, int precision, int size);
+
+int is_Digit(int n);
+
+int _printf(const char *format, ...);
+
+int percent_print(va_list args, char __attribute__((unused))buff[], 
+		int flags, int width, int precision, int size);
+
+int hexa_print(char conv[17], unsigned int x);
+
+int print_num_helper(int num);
+
+int reverse_print(va_list args, char *buffer, int flags, int width, 
+		int precision, int size);
+
+int rot13_print(va_list ap, char *buff, int flag, int width, 
+		int precision, int size);
+
+int string_print(va_list args, char *buffer, int flags, int width, 
+		int precision, int size);
 
 int get_precision(char const *format, int *index);
 

@@ -3,23 +3,23 @@
 /**
  * get_precision - finds the precision option in the format string
  * @format: The format string to examine
- * @index: Current index of where '%' is found
+ * @ind: Current index of where '%' is found
  * Return: precision found, else 0
  */
-int get_precision(char const *format, int *index)
+int get_precision(char const *format, int *ind)
 {
 	int precision = 0;
-	int i = *index + 1;
-	int j = i + 1;
+	int c = *ind + 1;
+	int k = c + 1;
 
-	for (; format[i]; i++)
+	for (; format[c]; c++)
 	{
-		for (; format[j]; j++)
+		for (; format[k]; k++)
 		{
-			if (format[i] == '.' && isDigit(format[j]))
+			if (format[c] == '.' && is_Digit(format[k]))
 			{
-				precision *= 10 + (format[i + 1] - '0');
-				*index += 1;
+				precision *= 10 + (format[c + 1] - '0');
+				*ind += 1;
 			}
 			else
 				break;
