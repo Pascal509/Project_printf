@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * print_buffer - Prints the contents of the buffer if it exist
+ * buffer_print - Prints the contents of the buffer if it exist
  * @buffer: Array of characters
- * 
-* Return: character printed
+ *
+ * Return: character printed
  */
 
 int buffer_print(char *buffer)

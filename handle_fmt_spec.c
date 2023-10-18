@@ -18,12 +18,12 @@ int (*handle_fmt_spec(char fmt_spec))(va_list, char *, int, int, int, int)
 		{'i', int_print},
 		{'d', int_print},
 		{'b', binary_print},
-		//		{'u', print_unsigned},
-		//		{'o', print_octal},
+		/*		{'u', print_unsigned},
+				{'o', print_octal},*/
 		{'x', hex_lowerCase_print},
 		{'X', hex_upperCase_print},
-		//		{'p', print_pointer},
-		//		{'S', print_non_printable},
+		/*		{'p', print_pointer},
+		//		{'S', print_non_printable},*/
 		{'r', reverse_print},
 		{'R', rot13_print},
 		{0, 0}

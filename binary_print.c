@@ -15,8 +15,9 @@
 int binary_print(va_list args, char __attribute__((unused))*buffer, int flags,
 		int width, int precision, int size)
 {
-	unsigned int n, m, i, sum;
+	unsigned int n, m, i;
 	int count = 0;
+ char *a[32];
 
 	UNUSED(buffer);
 	UNUSED(flags);
@@ -27,13 +28,13 @@ int binary_print(va_list args, char __attribute__((unused))*buffer, int flags,
 	n = va_arg(args, unsigned int);
 	m = 2147483648; /* (2 ^ 31) */
 	
-char *a[32];
+
 	for (i = 0; i < 32; i++)
 	{
 		a[i] = n & m ? "1" : "0";
         m >>= 1;
 	}
-	for (i = 0, sum = 0, count = 0; i < 32; i++)
+	for (i = 0, count = 0; i < 32; i++)
 	{
 		 if (a[i][0] == '1' || i == 31)
         {
