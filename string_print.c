@@ -1,60 +1,34 @@
 #include "main.h"
 /**
  * string_print - Prints a string when the format specifier is 's'
- * @ap: List type "all" of the variable arguments
- * @buff: Variable that holds the converted format specifier
- * @flag: Not handled
+ * @args: List type "all" of the variable arguments
+ * @buffer: Variable that holds the converted format specifier
+ * @flags: Not handled
  * @width: Not handled
  * @precision: Not handled
- * @len_modif: Not handled
+ * @size: Not handled
  * Return: Number of characters printed
  */
 
-int string_print(va_list ap, char buff[],
-		int flags, int width, int precision, int len_modifier)
+int string_print(va_list args, char *buffer, int flags, int width,
+		int precision, int size)
 {
-	int len = 0, index;
-	char *s = va_arg(ap, char *);
+	int printed_char = 0;
+	UNUSED (flags);
+	UNUSED (width);
+	UNUSED (precision);
+	UNUSED (size);
 
-	(void) buff;
-	(void) flags;
-	(void) width;
-	(void) precision;
-	(void) len_modifier;
-
-
-	if (s == NULL)
+	buffer = va_arg(args, char *);
+	if (buffer == NULL)
 	{
-		s = "(null)";
-		if (precision >= 6)
-			s = "      ";
+		buffer = "(null)";
+		printed_char = buffer_print(buffer);
 	}
 
-	while (s[len] != '\0')
-{
-		len++;
-}
-	if (precision >= 0 && precision < len)
+	else
 	{
-		len = precision;
+		printed_char = buffer_print(buffer);
 	}
-	if (width > len)
-	{
-		if (flags & IS_MINUS)
-		{
-			write(1, &s[0], len);
-			for (index = width - len; index > 0; index--)
-				write(1, " ", 1);
-			return (width);
-		}
-		else
-		{
-			for (index = width - len; index > 0; index--)
-				write(1, " ", 1);
-			write(1, &s[0], len);
-			return (width);
-		}
-	}
-
-	return (write(1, s, len));
+	return (printed_char);
 }

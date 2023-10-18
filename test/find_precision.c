@@ -9,7 +9,7 @@
  * Return: Precision.
  */
 
-int find_precision(const char *format, int *current_index, va_list ap)
+int find_precision(const char *format, int *current_index, va_list all)
 {
 	int index = *current_index + 1;
 	int precision = -1;
@@ -31,7 +31,7 @@ int find_precision(const char *format, int *current_index, va_list ap)
 		else if (format[index] == '*')
 		{
 			index++;
-			precision = va_arg(ap, int);
+			precision = va_arg(all, int);
 			break;
 		}
 		else

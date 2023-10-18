@@ -2,7 +2,7 @@
 
 /**
  * print_rot13string - Print a string in rot13.
- * @types: Lista of arguments
+ * @args: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width
@@ -10,42 +10,38 @@
  * @size: Size specifier
  * Return: Numbers of chars printed
  */
-int print_rot13string(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+
+int printRot13(va_list ap, char *buff, int flag, int width,
+		int precision, int size)
+
 {
-	char x;
-	char *str;
-	unsigned int i, j;
+	int ind, jo;
 	int count = 0;
 	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	str = va_arg(types, char *);
-	UNUSED(buffer);
+	buffer = va_arg(args, char *);
+
 	UNUSED(flags);
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
 
-	if (str == NULL)
-		str = "(AHYY)";
-	for (i = 0; str[i]; i++)
+	if (buffer == NULL)
+		buffer = "(AHYY)";
+	for (ind = 0; buffer[ind]; ind++)
 	{
-		for (j = 0; in[j]; j++)
+		for (jo = 0; in[jo]; jo++)
 		{
-			if (in[j] == str[i])
+			if (in[jo] == buff[ind])
 			{
-				x = out[j];
-				write(1, &x, 1);
-				count++;
+				count += _putchar(out[jo]);
 				break;
 			}
 		}
 		if (!in[j])
 		{
-			x = str[i];
-			write(1, &x, 1);
-			count++;
+			count += _putchar(buff[i]);
 		}
 	}
 	return (count);

@@ -1,6 +1,6 @@
 #include "main.h"
 
-/************************* PRINT BINARY *************************/
+
 /**
  * print_binary - Prints an unsigned number
  * @types: Lista of arguments
@@ -11,8 +11,9 @@
  * @size: Size specifier
  * Return: Numbers of char printed.
  */
-int print_binary(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+
+int print_binary(va_list args, char __attribute__((unused))*buffer, int flags,
+		int width, int precision, int size)
 {
 	unsigned int n, m, i, sum;
 	unsigned int a[32];
@@ -24,7 +25,7 @@ int print_binary(va_list types, char buffer[],
 	UNUSED(precision);
 	UNUSED(size);
 
-	n = va_arg(types, unsigned int);
+	n = va_arg(args, unsigned int);
 	m = 2147483648; /* (2 ^ 31) */
 	a[0] = n / m;
 	for (i = 1; i < 32; i++)
@@ -39,10 +40,9 @@ int print_binary(va_list types, char buffer[],
 		{
 			char z = '0' + a[i];
 
-			write(1, &z, 1);
+			_putchar(z);
 			count++;
 		}
 	}
-	return (count);
+	return (count);
 }
-

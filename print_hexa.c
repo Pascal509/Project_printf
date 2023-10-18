@@ -1,39 +1,32 @@
+#include "main.h"
+
 /**
- * print_non_printable - Prints ascii codes in hexa of non printable chars
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Number of chars printed
+ * hexa_print - Prints the hexadecimal notation of an unsigned integer
+ * @conv: number to convert into
+ * @x: Unsigned number to convert
+ * Return: Number of characters printed
  */
-int print_non_printable(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+
+int hexa_print(char conv[17], unsigned int x)
 {
-	int i = 0, offset = 0;
-	char *str = va_arg(types, char *);
+	int ind, count = 0;
+	unsigned int h16[16] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
-
-	if (str == NULL)
-		return (write(1, "(null)", 6));
-
-	while (str[i] != '\0')
+	if (x > 15)
 	{
-		if (is_printable(str[i]))
-			buffer[i + offset] = str[i];
-		else
-			offset += append_hexa_code(str[i], buffer, i + offset);
-
-		i++;
+		count += hexa_print(conv, x / 16);
 	}
 
-	buffer[i + offset] = '\0';
+	ind = 0;
+	while (ind < 16)
+	{
+		if (h16[ind] == (x % 16))
+		{
+			count += _putchar(conv[ind]);
+			break;
+		}
+		ind++;
+	}
 
-	return (write(1, buffer, i + offset));
+	return (count);
 }
-
