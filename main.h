@@ -4,10 +4,8 @@
 #include <unistd.h>
 #include <stdio.h>
 
-#define BUFFER_SIZE 1024
 
 
-#define UNUSED(x) (void)(x)
 
 /**
  * struct format - Struct op
@@ -21,6 +19,10 @@ typedef struct format
         char fmt_spec;
         int (*function)(va_list, char *, int, int, int, int);
 } format;
+
+ #define BUFFER_SIZE 1024
+ #define UNUSED(x) (void)(x)
+
 
 int _putchar(char c);
 
@@ -52,7 +54,7 @@ int get_size(char const *format, int *curr_i);
 
 int get_width(const char *format, va_list args, int *curr_i);
 
-int (*handle_fmt_spec(char fmt_spec))(va_list args, char *buff, int, int, int, int);
+int (*handle_fmt_spec(char fmt_spec))(va_list, char *, int, int, int, int);
 
 int hex_lowerCase_print(va_list args, char __attribute__((unused))*buffer, 
 		int flags, int width, int precision, int size);

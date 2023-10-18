@@ -1,3 +1,5 @@
+
+
 #include "main.h"
 
 /**
@@ -20,7 +22,6 @@ int char_print(va_list args, char __attribute__((unused))*buffer, int flags,
 	UNUSED (width);
 	UNUSED (precision);
 	UNUSED (size);
-
 	printed_char = _putchar(va_arg(args, int));
 
 	return (printed_char);
