@@ -11,7 +11,7 @@
  * Return: Number of character printed
  */
 
-int char_print(va_list args, char __attribute__((unused))*buffer, int flags, 
+int char_print(va_list args, char __attribute__((unused))*buffer, int flags,
 		int width, int precision, int size)
 {
 	int printed_char;

@@ -10,7 +10,7 @@
  * @len_modif: Not handled.
  * Return: The number of characters printed.
  */
-int percent_print(va_list args, char __attribute__((unused))buff[], 
+int percent_print(va_list args, char __attribute__((unused))buff[],
 		int flags, int width, int precision, int size)
 
 {

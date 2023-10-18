@@ -11,7 +11,7 @@
  * @size: Specifies len_modifier
  * Return: Number of characterss printed
  */
-int hex_lowerCase_print(va_list args, char __attribute__((unused))*buffer, 
+int hex_lowerCase_print(va_list args, char __attribute__((unused))*buffer,
 		int flags, int width, int precision, int size)
 
 {

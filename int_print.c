@@ -14,7 +14,7 @@
  */
 
 
-int int_print(va_list args, char __attribute__((unused))*buffer, 
+int int_print(va_list args, char __attribute__((unused))*buffer,
 		int flags, int width, int precision, int size)
 {
 	int n_printed = 0, pad = 0;

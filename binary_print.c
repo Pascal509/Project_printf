@@ -12,7 +12,7 @@
  * Return: Numbers of char printed.
  */
 
-int binary_print(va_list args, char __attribute__((unused))*buffer, int flags, 
+int binary_print(va_list args, char __attribute__((unused))*buffer, int flags,
 		int width, int precision, int size)
 {
 	unsigned int n, m, i, sum;
