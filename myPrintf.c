@@ -9,8 +9,8 @@
 int _printf(const char *format, ...)
 {
 	int index = 0,  printedChars = 0, fmt_spec, printOut = 0;
-	int flags, width, precision, size
-		va_list types;
+	int flags, width, precision, size;
+	va_list types;
 	char buffer[BUFFER_SIZE];
 
 

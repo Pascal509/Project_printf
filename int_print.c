@@ -7,7 +7,6 @@
  * @width: Width
  * @precision: Precision specifier
  * @size: Number length
- * @pad: Padding character
  * @args: variable list of arguments
  *
  * Return: Number of characters to print
@@ -18,11 +17,9 @@ int int_print(va_list args, char __attribute__((unused))*buffer,
 {
 	int n, n_printed = 0, pad = 0;
 
-	UNUSED(precision);
-	n = va_arg(args, int);
+	UNUSED(precision),	n = va_arg(args, int);
 
 	n = (size == 'l') ? (long)n : n;
-
 	n = (size == 'h') ? (short)n : n;
 
 
@@ -36,18 +33,16 @@ int int_print(va_list args, char __attribute__((unused))*buffer,
 	{
 		if (flags == '-')
 		{
-			pad = width - print_num_helper(n),
-			    flags = ' ';
-				    for (; pad > 0; pad--)
-					    n_printed += _putchar(flags);
+			pad = width - print_num_helper(n), flags = ' ';
+			for (; pad > 0; pad--)
+				n_printed += _putchar(flags);
 
 			return (n_printed);
 		}
 
 		if (flags == '0')
 		{
-			n_printed = digit_counter(n),
-			pad = width - print_num_helper(n);
+			n_printed = digit_counter(n), pad = width - print_num_helper(n);
 			for (; pad > 0; pad--)
 				n_printed += _putchar(flags);
 		}
